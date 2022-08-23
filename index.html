@@ -1,12 +1,909 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/flowbite@1.5.2/dist/flowbite.min.css" />
+    <!-- tailwindcss customization script -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    },
+                },
+            },
+        };
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+        * {
+            font-family: 'Roboto', sans-serif;
+        }
+    </style>
+    <title>Start and grow your e-commerce business</title>
 </head>
+
 <body>
-    
+    <!-- Navigation Bar -->
+    <nav class="bg-[#fbf7ed] fixed px-2 py-2.5 w-full z-20 top-0 left-0 md:px-8 lg:px-16 xl:px-24 shadow-md">
+        <div class="container flex flex-wrap justify-between items-center mx-auto">
+            <a href="#" class="flex items-center">
+                <img src="assets/images/shopify-bag.png" class="mr-3 h-6 sm:h-9" alt="Shopify Logo">
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-black italic">Shopify</span>
+            </a>
+            <div class="flex xl:order-2">
+                <button type="button"
+                    class="text-white bg-[#008060] hover:bg-[#002d2d] shadow-lg focus:outline-none font-medium hover:border hover:border-[#008060] rounded-lg text-sm px-5 py-2.5 text-center mr-3 xl:mr-0">Start
+                    free trial</button>
+                <button data-collapse-toggle="navbar-sticky" type="button"
+                    class="inline-flex items-center p-2 text-sm text-gray-500 rounded-lg xl:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200"
+                    aria-controls="navbar-sticky" aria-expanded="false">
+                    <span class="sr-only">Open main menu</span>
+                    <svg class="w-6 h-6" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </button>
+            </div>
+            <div class="hidden justify-between items-center w-full xl:flex xl:w-auto xl:order-1" id="navbar-sticky">
+                <ul
+                    class="flex flex-col p-4 mt-4 bg-gray-50 rounded-lg border border-gray-100 xl:flex-row xl:space-x-8 xl:mt-0 xl:text-sm xl:font-medium xl:border-0 xl:bg-[#fbf7ed]">
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-start"
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0 xl:w-auto">Start
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar-start"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow">
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Start
+                                        your business</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Branding</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Online
+                                    presence</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Store
+                                    setup</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-sell"
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0 xl:w-auto">Sell
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar-sell"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow">
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Sell
+                                        everywhere</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Online
+                                    store</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Point
+                                    of sale</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Buy
+                                    button</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Checkout</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Sales
+                                    channels</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Wholesale
+                                    marketplace</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Custom
+                                    storefront tools</a>
+                                <a href="#"
+                                    class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">International
+                                    commerce</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-market"
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0 xl:w-auto">Market
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar-market"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow">
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Market
+                                        your business</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Email
+                                    marketing</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Marketing
+                                    automation</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Customer
+                                    groups</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Business
+                                    chat</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Facebook
+                                    Ads</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-manage"
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0 xl:w-auto">Manage
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar-manage"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow">
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Manage
+                                        everything</a>
+                                </li>
+                            </ul>
+                            <div class="py-1">
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Payments</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Blance</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Capital</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Shipping</a>
+                                <a href="#" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100">Ecomerce
+                                    automation</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0">Pricing</a>
+                    </li>
+                    <li>
+                        <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar-learn"
+                            class="flex justify-between items-center py-2 pr-4 pl-3 w-full font-medium text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0 xl:w-auto">Learn
+                            <svg class="ml-1 w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd"
+                                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                    clip-rule="evenodd"></path>
+                            </svg></button>
+                        <!-- Dropdown menu -->
+                        <div id="dropdownNavbar-learn"
+                            class="hidden z-10 w-44 font-normal bg-white rounded divide-y divide-gray-100 shadow">
+                            <ul class="py-1 text-sm text-gray-700" aria-labelledby="dropdownLargeButton">
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Help
+                                        center</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Blog</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Business
+                                        courses</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Guides</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Shopify
+                                        community</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Free
+                                        tools</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Podcasts</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Community
+                                        events</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Research</a>
+                                </li>
+                                <li>
+                                    <a href="#" class="block py-2 px-4 hover:bg-gray-100">Editions</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#"
+                            class="block py-2 pr-4 pl-3 text-gray-700 rounded hover:bg-gray-100 xl:hover:bg-transparent xl:border-0 xl:p-0">Log
+                            in</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Section - Hero -->
+    <div class="bg-[#fbf7ed] px-2 md:px-8 lg:px-16 xl:px-24 mt-[3.8rem] xl:mt-[4.5rem] py-12">
+        <button type="button"
+            class="text-sm xl:text-lg px-5 py-1.5 text-center flex justify-between items-center xl:w-[52%] border-2 border-t-green-400 border-l-green-400 border-b-blue-500 border-r-blue-500 rounded-3xl hover:bg-gradient-to-r  hover:from-green-400 hover:to-blue-500"><span
+                class="font-bold">Shopify Editions, Summer '22 is here</span> <span class="hidden xl:inline">| Discover
+                100+ new features</span> <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg></button>
+    </div>
+    <header class="flex flex-col-reverse items-center px-2 xl:flex-row md:px-8 lg:px-16 xl:px-24 bg-[#fbf7ed]">
+        <div class="flex flex-col justify-between leading-normal xl:pr-20 mt-8 xl:mt-0">
+            <h5 class="mb-8 text-4xl lg:text-6xl font-bold tracking-tight text-[#004c3f]">If you can dream it, you can
+                sell it with
+                Shopify</h5>
+            <p class="mb-8 font-light text-md lg:text-xl text-gray-700">Millions of the world's most successful brands
+                trust
+                Shopify to sell, ship and process payments anywhere.</p>
+            <input type="email" name="email" id="email"
+                class="mb-2 bg-gray-50 border border-gray-300 text-gray-900 text-lg rounded-lg focus:ring-[#008060] focus:border-[#008060]block w-full p-2.5"
+                placeholder="Enter your email address" required>
+            <button type="button"
+                class="mb-8 text-white bg-[#008060] hover:bg-[#002d2d] hover:border hover:border-[#008060] font-medium rounded-md text-lg px-5 py-3.5 inline-flex justify-center w-full text-center shadow-lg">Start
+                free trail</button>
+            <p class="mb-8 font-light text-xs lg:text-lg text-gray-700">Try Shopify free for 14 days, no credit card
+                required. By
+                entering your email, you agree to receive marketing emails from Shopify.</p>
+        </div>
+        <img class="object-cover xl:w-[55%]"
+            src="assets/images/hero-product@tablet-dcee1276b5e044d7e201cd88922474aa3676c3133222b6946a578f01f5367589.webp"
+            alt="">
+    </header>
+
+    <!-- Section - Bring your business online -->
+    <section class="bg-[#004c3f] px-2 md:px-8 lg:px-16 py-20 xl:px-24">
+        <h2 class="text-4xl text-white font-light mb-4">Bring your business online</h2>
+        <p class="text-md text-white font-light mb-4">Create an ecommerce website backed by powerful tools that help you
+            find
+            customers, drive sales, and manage your day-to-day.</p>
+        <a href="#" class="flex items-center text-white font-bold mb-8">
+            <span>Explore more examples</span>
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+        <div
+            class="flex flex-col flex-wrap items-center md:flex md:flex-row md:justify-center lg:justify-start xl:flex-nowrap mb-12">
+            <div class="xl:w-1/5">
+                <a href="#">
+                    <img src="assets/images/home-example-small-4bc93b93a9d345329480ea6e387cf6890323170a70473bad69a87424cad52e28.webp"
+                        alt="" />
+                </a>
+                <div class="py-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Food & Drink</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-white">Alfred</p>
+                </div>
+            </div>
+            <div class="mt-4 xl:w-1/5 md:ml-4 md:mt-0">
+                <img src="assets/images/home-example-small-6cf57deaaf9e7c38f45de3d300080353843430c1be3ab0ed3cd5e21b93157de8.webp"
+                    alt="" />
+                <div class="py-4">
+                    <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Jewelry</h5>
+                    <p class="mb-3 font-normal text-white">Corey Moranis</p>
+                </div>
+            </div>
+            <div class="mt-4 xl:w-1/5 lg:ml-4 lg:mt-0">
+                <img src="assets/images/home-example-small-10f5c2735cb72e18af4d47a31a72326b3eb1f0611963d69d12a51ed31bed4acd.webp"
+                    alt="" />
+                <div class="py-4">
+                    <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Food & Drink</h5>
+                    <p class="mb-3 font-normal text-white">Detour Coffee</p>
+                </div>
+            </div>
+            <div class="mt-4 xl:w-1/5 md:ml-4 lg:ml-0 xl:ml-4 lg:mt-0">
+                <img src="assets/images/home-example-small-873ea125aea32650f2e2c282609c62a63be928583b8830cc67df98feff30ca89.webp"
+                    alt="" />
+                <div class="py-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Beauty & Cosmetics</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-white">Then I Met You</p>
+                </div>
+            </div>
+            <div class="mt-4 xl:w-1/5 lg:ml-4 lg:mt-0">
+                <img src="assets/images/home-example-small-8bb452f93af6069b33cdc00d9fab7cacaa32d34684bda58e13eb25faadeb2b72.webp"
+                    alt="" />
+                <div class="py-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Home & Garden</h5>
+                    </a>
+                    <p class="mb-3 font-normal text-white">Miss Boon</p>
+                </div>
+            </div>
+        </div>
+        <h2 class="text-4xl text-white font-light mb-12">Take the best path forward</h2>
+        <div
+            class="flex flex-col flex-wrap items-center md:flex md:flex-row md:justify-center lg:justify-start lg:flex-nowrap">
+            <div class="lg:w-1/4 md:w-2/4">
+                <svg class="mb-2 w-10 h-10 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
+                        clip-rule="evenodd"></path>
+                    <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
+                </svg>
+                <div class="py-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Start an online business
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-white">Create a business, whether you’ve got a fresh idea or are
+                        looking for a new way to make money.
+
+                    </p>
+                </div>
+            </div>
+            <div class="mt-4 lg:w-1/4 md:w-2/5 md:ml-4 md:mt-0">
+                <svg class="mb-2 w-10 h-10 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
+                        clip-rule="evenodd"></path>
+                    <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
+                </svg>
+                <div class="py-4">
+                    <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Move your business online
+                    </h5>
+                    <p class="mb-3 font-normal text-white">Turn your retail store into an online store and keep serving
+                        customers without missing a beat.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-4 lg:w-1/4 md:w-2/4 lg:ml-4 lg:mt-0">
+                <svg class="mb-2 w-10 h-10 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
+                        clip-rule="evenodd"></path>
+                    <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
+                </svg>
+                <div class="py-4">
+                    <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Switch to Shopify
+                    </h5>
+                    <p class="mb-3 font-normal text-white">Bring your business to Shopify, no matter which ecommerce
+                        platform you’re currently using.
+                    </p>
+                </div>
+            </div>
+            <div class="mt-4 lg:w-1/4 md:w-2/5 lg:ml-4 lg:mt-0">
+                <svg class="mb-2 w-10 h-10 text-gray-500" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M5 5a3 3 0 015-2.236A3 3 0 0114.83 6H16a2 2 0 110 4h-5V9a1 1 0 10-2 0v1H4a2 2 0 110-4h1.17C5.06 5.687 5 5.35 5 5zm4 1V5a1 1 0 10-1 1h1zm3 0a1 1 0 10-1-1v1h1z"
+                        clip-rule="evenodd"></path>
+                    <path d="M9 11H3v5a2 2 0 002 2h4v-7zM11 18h4a2 2 0 002-2v-5h-6v7z"></path>
+                </svg>
+                <div class="py-4">
+                    <a href="#">
+                        <h5 class="mb-2 text-sm uppercase font-bold tracking-tight text-white">Hire a Shopify expert
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-white">Get set up with the help of a trusted freelancer or agency
+                        from the Shopify Experts Marketplace.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section -  With you wherever you’re going -->
+    <section class="py-20">
+        <h2 class="font-normal text-4xl tracking-tight text-black text-center px-2 md:px-8 lg:px-16 xl:px-24">With you
+            wherever you’re going</h2>
+        <p class="font-light text-lg text-gray-70 text-center px-2 md:px-8 lg:px-16 xl:px-24">One platform with all the
+            ecommerce and point of sale
+            features <br />you need to start, run, and grow your business.</p>
+        <div
+            class="flex flex-col-reverse items-center px-2 xl:flex-row xl:justify-between md:px-8 lg:px-16 xl:px-24 mt-12">
+            <img class="object-cover xl:w-[55%]"
+                src="assets/images/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.webp"
+                alt="">
+            <div
+                class="flex flex-col justify-between leading-normal xl:pr-20 mt-8 xl:mt-0 xl:ml-12 text-center xl:text-left">
+                <h5 class="mb-6 text-xl lg:text-2xl font-normal tracking-tight text-black">Sell everywhere</h5>
+                <p class="mb-6 font-light text-md lg:text-md text-gray-700">Use one platform to sell products to anyone,
+                    anywhere—in person with Point of Sale and online through your website, social media, and online
+                    marketplaces.
+                </p>
+                <a href="#"
+                    class="flex items-center justify-center xl:justify-start text-white font-bold mb-8 text-[#004c3f]">
+                    <span>Explore more examples</span>
+                    <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="flex flex-col items-center px-2 xl:flex-row xl:justify-between md:px-8 lg:px-16 xl:px-24 mt-12">
+            <div class="flex flex-col justify-between leading-normal xl:pr-20 mt-8 xl:mt-0 text-center xl:text-left">
+                <h5 class="mb-6 text-xl lg:text-2xl font-normal tracking-tight text-black">Market your business </h5>
+                <p class="mb-6 font-light text-md lg:text-md text-gray-700">Take the guesswork out of marketing with
+                    built-in tools that help you create, execute, and analyze digital marketing campaigns.
+                </p>
+                <a href="#"
+                    class="flex items-center justify-center xl:justify-start text-white font-bold mb-8 text-[#004c3f]">
+                    <span>Explore how to market your business</span>
+                    <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+            <img class="object-cover xl:w-[55%]"
+                src="assets/images/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.webp"
+                alt="">
+        </div>
+
+        <div
+            class="flex flex-col-reverse items-center px-2 xl:flex-row xl:justify-between md:px-8 lg:px-16 xl:px-24 mt-12">
+            <img class="object-cover xl:w-[55%]"
+                src="assets/images/market-small-084eab2d72b510555838c446501d27dd7380585450efcaaa97453289b2b69c79.webp"
+                alt="">
+            <div
+                class="flex flex-col justify-between leading-normal xl:pr-20 mt-8 xl:mt-0 xl:ml-12 text-center xl:text-left">
+                <h5 class="mb-6 text-xl lg:text-2xl font-normal tracking-tight text-black">Manage everything </h5>
+                <p class="mb-6 font-light text-md lg:text-md text-gray-700">Gain the insights you need to grow—use a
+                    single dashboard to manage orders, shipping, and payments anywhere you go.
+                </p>
+                <a href="#"
+                    class="flex items-center justify-center xl:justify-start text-white font-bold mb-8 text-[#004c3f]">
+                    <span>Explore how to manage your business</span>
+                    <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Empowering independent business owners everywhere -->
+    <section class="px-2 md:px-8 lg:px-16 py-20 xl:px-24">
+        <div
+            class="flex flex-col justify-between leading-normal xl:pr-20 mt-8 xl:mt-0 xl:ml-12 text-center xl:text-left">
+            <h5 class="mb-6 text-xl lg:text-4xl font-normal tracking-tight text-black">Empowering independent
+                business<br /> owners everywhere </h5>
+            <p class="mb-6 font-light text-2xl lg:text-md text-gray-700">Millions of businesses in <span
+                    class="font-bold text-black">175 countries</span> around the world have<br /> made over <span
+                    class="font-bold text-black">$496 billion USD</span> in sales using Shopify.
+            </p>
+            <a href="#"
+                class="flex items-center justify-center xl:justify-start text-white font-bold mb-8 text-[#004c3f]">
+                <span>Learn more about Shopify</span>
+                <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clip-rule="evenodd"></path>
+                </svg>
+            </a>
+        </div>
+        <div class="flex justify-center">
+            <img src="assets/images/34fd13ce53463d6f0c4e4dd788feac6e.gif" alt="">
+        </div>
+        <div class="flex flex-col xl:flex-row my-12">
+            <img class="object-cover w-full"
+                src="assets/images/cee-cees-closet-testimonial@desktop-734a70d7875b7c3515558414f3a5ef4efd9eb396b17fb418355f15b078371233.jpg"
+                alt="">
+            <div class="flex flex-col items-center text-center py-20 px-12 leading-normal bg-[#002e25]">
+                <h5 class="mb-12 text-4xl font-medium tracking-tight text-white">“We’ve been able to build something in
+                    3 years that a lot of brands haven’t actually gotten to in 10 years.”</h5>
+                <img class="mb-8"
+                    src="assets/images/logo-cee-cees-closet-small-bbc2baa973603b707c4d17c8ac77b35b9097174340d500cc757354a7d868c456.png"
+                    alt="">
+                <p class="mb-8 font-medium text-white text-xl">Chioma | Cee Cee’s Closet NYC
+                </p>
+                <button type="button"
+                    class="text-white bg-[#002e25] hover:bg-[#ffffff] font-medium border border-white hover:text-black rounded-md text-md px-5 py-2.5 text-center flex items-center"><svg
+                        class="w-6 h-6 hover:text-[#002e25]" fill="currentColor" viewBox="0 0 20 20"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd"
+                            d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z"
+                            clip-rule="evenodd"></path>
+                    </svg><span class="ml-2">Play Chioma and Uchenna's story</span></button>
+            </div>
+        </div>
+        <div class="flex flex-row justify-center flex-wrap">
+            <div class="px-4">
+                <img src="assets/images/cee-cees-closet-small-1d6b515579404482342748f0b67ff6e09836a47b648250d8d1b00e2a24b29faa.png"
+                    alt="">
+            </div>
+            <div class="px-4">
+                <img src="assets/images/nalata-nalata-small-b5cd674cc9203997e3a72f2726c8aaa3d594a27c2f69001b4ad833939e9af5ce.png"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 md:mt-0">
+                <img src="assets/images/kirrin-finch-small-b85f000eede1716da6a496a95ff3836b300b5beaa57617ab834332b675ede0d6.webp"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 md:mt-0">
+                <img src="assets/images/tokyo-bike-small-2295b7e1d183bae07eb36ad83451ec624cfe61bbec39e85877d40600f22115b2.webp"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 lg:mt-0">
+                <img src="assets/images/meso-goods-small-d5c7243d2e6e1e1677b5648f1e672701476c5df7d516a131013a46c7721c98b4.webp"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 xl:mt-0">
+                <img src="assets/images/coco-and-breezy-small-3cc3c1f7d5c50000624adec29ce71dae453821ce3813f0e34b2d3351b5f2b4b2.webp"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 xl:mt-0">
+                <img src="assets/images/brooklyn-museum-small-3cbca35150e701329098cd95f21ec9388886479a5f781a515466b59d80d7b5bb.png"
+                    alt="">
+            </div>
+            <div class="px-4 mt-8 xl:mt-0">
+                <img src="assets/images/adore-me-small-b4e6488ccabc61cdaaf92d931a5b8a591a35d55982a796a5b582924a9563afb1.webp"
+                    alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Get the help you need, every step of the way -->
+    <section
+        class="flex flex-col items-center bg-[#fbf7ed] md:flex-row md:justify-between md:items-start py-20 px-2 md:pr-0 md:pl-2 md:pl-8 lg:pl-16 xl:pl-24">
+        <div class="flex flex-col justify-between md:p-4 leading-normal">
+            <h5 class="mb-2 text-5xl font-normal tracking-tight text-gray-900">Get the help you need, every step of the
+                way
+            </h5>
+            <div class="mt-6 flex flex-col md:flex m:flex-row flex-wrap">
+                <div class="p-3">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-normal tracking-tight text-gray-900">Shopify support
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700">Contact support 24/7, whether you’re
+                        troubleshooting issues or looking for business advice. </p>
+                    <a href="#" class="flex justify-start font-bold mb-8 text-[#004c3f] text-xl">
+                        <span>Contact support</span>
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="p-3">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-normal tracking-tight text-gray-900">Shopify App Store
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700">Add features and functionality to your business with
+                        6,000+ apps that integrate directly with Shopify. </p>
+                    <a href="#" class="flex justify-start font-bold mb-8 text-[#004c3f] text-xl">
+                        <span>Visit the Shopify App Store</span>
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+                <div class="p-3">
+                    <a href="#">
+                        <h5 class="mb-2 text-xl font-normal tracking-tight text-gray-900">Shopify Experts Marketplace
+                        </h5>
+                    </a>
+                    <p class="mb-3 font-normal text-gray-700">Hire a Shopify expert to help you with everything from
+                        store setup to SEO.
+                    </p>
+                    <a href="#" class="flex justify-start font-bold mb-8 text-[#004c3f] text-xl">
+                        <span>Explore the Shopify Experts Marketplace</span>
+                        <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd"
+                                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <img class="object-cover md:w-1/2"
+            src="assets/images/help@desktop-2x-2929e8d420327b708cb9452bf940e92a426145bd07f88ad410db628513e571d4.webp"
+            alt="">
+    </section>
+
+    <!-- Section - Start your business journey with Shopify -->
+    <section class="py-20 flex flex-col items-center">
+        <h2 class="mb-5 font-normal text-4xl tracking-tight text-black text-center px-2 md:px-8 lg:px-16 xl:px-24">Start
+            your
+            business journey with Shopify </h2>
+        <p class="mb-5 font-light text-lg text-gray-70 text-center px-2 md:px-8 lg:px-16 xl:px-24">Try Shopify for free,
+            and
+            explore all the tools and services you need to start, run, and grow<br /> your business.
+        </p>
+        <button type="button"
+            class="mb-20 text-white bg-[#008060] hover:bg-[#002d2d] shadow-lg focus:outline-none font-medium hover:border hover:border-[#008060] rounded-sm text-md px-5 py-2.5 text-center mr-3 xl:mr-0">Start
+            free trial
+        </button>
+        <a href="#" class="flex align-center font-bold mb-8 text-[#004c3f] text-xl">
+            <span>Back to top</span>
+            <svg class="w-5 h-5 ml-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                <path fill-rule="evenodd"
+                    d="M3.293 9.707a1 1 0 010-1.414l6-6a1 1 0 011.414 0l6 6a1 1 0 01-1.414 1.414L11 5.414V17a1 1 0 11-2 0V5.414L4.707 9.707a1 1 0 01-1.414 0z"
+                    clip-rule="evenodd"></path>
+            </svg>
+        </a>
+    </section>
+
+    <!-- Section - Footer -->
+    <footer class="text-gray-600 body-font bg-[#002e25] px-2 md:px-8 lg:px-16 xl:px-24">
+        <div
+            class="text-sm font-medium text-center text-gray-500 border-b border-gray-200 border-gray-700">
+            <ul class="flex flex-wrap -mb-px">
+                <li class="mr-2">
+                    <a href="#"
+                        class="inline-block text-white p-4 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-gray-300">About</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                    class="inline-block text-white p-4 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-gray-300"
+                        aria-current="page">Careers</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                        class="inline-block text-white p-4 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-gray-300">Press and Media</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                        class="inline-block text-white p-4 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-gray-300">Shopify Plus</a>
+                </li>
+                <li class="mr-2">
+                    <a href="#"
+                        class="inline-block text-white p-4 rounded-t-lg border-b-2 border-transparent hover:text-white hover:border-gray-300">Sitemap</a>
+                </li>
+            </ul>
+        </div>
+        <div class="container py-24 mx-auto">
+            <div class="flex flex-wrap md:text-left text-center -mb-10 -mx-4">
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">ONLINE STORE </h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Sell online</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Features</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Examples</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Website builder</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Online retail</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-8"></h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Ecommerce website</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Domain names</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Themes</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Shopping cart</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Ecommerce hosting</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-8"></h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Mobile commerce</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Ecommerce software</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Online store builder</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Dropshipping business</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Store themes</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">POINT OF SALE </h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Point of sale</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Features</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Hardware</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">SUPPORT</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">24/7 support</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Shopify Help Center</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Shopify Community</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">API documentation</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Free tools</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Free stock photos</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Website for sale</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Logo Maker</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Business name generator</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Research</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Legal</a>
+                        </li>
+                    </nav>
+                </div>
+                <div class="lg:w-1/6 md:w-1/2 w-full px-4">
+                    <h2 class="title-font font-medium text-white tracking-widest text-sm mb-3">SHOPIFY</h2>
+                    <nav class="list-none mb-10">
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Contact</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Partner program</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Affiliate program</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">App developers</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Investers</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Blog topics</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Community Events</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-gray-400 font-light">Business Encyclopedia</a>
+                        </li>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-600 py-8">
+            <div class="bg-[#002e25]">
+                <div class="flex flex-col items-center md:flex md:flex-row md:justify-between">
+                    <span class="flex">
+                        <a class="text-white cursor-pointer">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="w-5 h-5" viewBox="0 0 24 24">
+                                <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-white cursor-pointer">
+                            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                class="w-5 h-5" viewBox="0 0 24 24">
+                                <path
+                                    d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+                                </path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-white cursor-pointer">
+                            <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                                <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                            </svg>
+                        </a>
+                        <a class="ml-3 text-white cursor-pointer">
+                            <svg fill="currentColor" stroke="currentColor" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="0" class="w-5 h-5" viewBox="0 0 24 24">
+                                <path stroke="none"
+                                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z">
+                                </path>
+                                <circle cx="4" cy="4" r="2" stroke="none"></circle>
+                            </svg>
+                        </a>
+                    </span>
+                    <div class="flex text-gray-400 mt-6 md:mt-0">
+                        <span class="cursor-pointer"> Terms of Service </span>
+                        <span class="ml-4 cursor-pointer"> Privacy Policy </span>
+                        <span class="ml-4 flex">
+                            <svg class="w-5 h-5 cursor-pointer" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9">
+                                </path>
+                            </svg>
+                            <button id="dropdownDefault" data-dropdown-toggle="dropdown" class="flex items-center ml-2"
+                                type="button">USA <svg class="ml-2 w-4 h-4" aria-hidden="true" fill="none"
+                                    stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 9l-7 7-7-7"></path>
+                                </svg>
+                            </button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+    </footer>
+
+    <!-- flowbite js -->
+    <script src="https://unpkg.com/flowbite@1.5.2/dist/flowbite.js"></script>
 </body>
+
 </html>
